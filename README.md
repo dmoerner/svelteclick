@@ -1,18 +1,12 @@
-# sv
+# SvelteClick
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+SvelteClick is an idle clicker game implemented in Svelte. It is intended to be
+quite difficult and encourage user interaction. Planned features:
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+- Button moves around the page on each click.
+- Button is difficult to distinguish from achievements.
+- Button uses randomized classes and coexists with hidden buttons to make
+  script automation difficult.
 
 ## Developing
 
