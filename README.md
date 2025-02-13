@@ -1,12 +1,10 @@
 # SvelteClick
 
-SvelteClick is an idle clicker game implemented in Svelte. It is intended to be
-quite difficult and encourage user interaction. Planned features:
+Check it out at: https://moerner.com/svelteclick
 
-- Button moves around the page on each click.
-- Button is difficult to distinguish from achievements.
-- Button uses randomized classes and coexists with hidden buttons to make
-  script automation difficult.
+SvelteClick is an idle clicker game implemented in Svelte. It's a toy to
+explore some of Svelte's features, especially with CSS transitions. Click at
+least five times for a surprise!
 
 ## Developing
 
