@@ -1,34 +1,36 @@
-<script>
+<script lang="ts">
 	import { elasticOut } from 'svelte/easing';
 
 	let count = $state(0);
 	let ypos = $state('60%');
 	let xpos = $state('50%');
 
-	function clickHandler(event) {
+	function clickHandler(event: MouseEvent) {
 		increment();
-		randomPos(event.currentTarget);
+		const target = event.currentTarget as HTMLElement;
+		randomPos(target);
 	}
 
 	function increment() {
 		count += 1;
 	}
 
-	function getRandomInt(max) {
+	function getRandomInt(max: number) {
 		return Math.floor(Math.random() * max);
 	}
 
-	function randomPos(target) {
+	function randomPos(target: HTMLElement) {
 		const width = window.innerWidth - target.offsetWidth;
 		const height = window.innerHeight - target.offsetHeight;
 		xpos = `${getRandomInt(width)}px`;
 		ypos = `${getRandomInt(height)}px`;
 	}
 
-	function spin(node, { duration }) {
+	function spin(node: HTMLElement, { duration }: { duration: number }) {
 		return {
 			duration,
-			css: (t, u) => {
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
+			css: (t: number, _: unknown) => {
 				const eased = elasticOut(t);
 
 				return `
@@ -42,9 +44,13 @@
 <svelte:head><title>SvelteClick</title></svelte:head>
 
 {#if count > 0 && count % 5 === 0}
-	<h1 style="--count:{2 * count}deg" in:spin={{ duration: 2000 }}><a href="https://github.com/dmoerner/svelteclick">Welcome to SvelteClick</a></h1>
+	<h1 style="--count:{2 * count}deg" in:spin={{ duration: 2000 }}>
+		<a href="https://github.com/dmoerner/svelteclick">Welcome to SvelteClick</a>
+	</h1>
 {:else}
-	<h1 style="--count:{2 * count}deg"><a href="https://github.com/dmoerner/svelteclick">Welcome to SvelteClick</a></h1>
+	<h1 style="--count:{2 * count}deg">
+		<a href="https://github.com/dmoerner/svelteclick">Welcome to SvelteClick</a>
+	</h1>
 {/if}
 
 <button style="--ypos:{ypos}; --xpos:{xpos}" onclick={clickHandler}>
